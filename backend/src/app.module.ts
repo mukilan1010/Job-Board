@@ -6,17 +6,18 @@ import { Job } from './jobs/job.entity';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({ isGlobal: true }),
+
     TypeOrmModule.forRoot({
-  type: 'postgres',
-  host: 'localhost',
-  port: 5432,
-  username: 'postgres',
-  password: 'Muuki@291024',
-  database: 'jobdb',
-  entities: [Job],
-  synchronize: true, // ⚠️ auto-creates tables in dev
-}),
+      type: 'postgres',
+      host: process.env.DB_HOST || 'localhost',
+      port: parseInt(process.env.DB_PORT || '5432', 10),
+      username: process.env.DB_USERNAME || 'postgres',
+      password: process.env.DB_PASSWORD || 'Muuki@291024',
+      database: process.env.DB_NAME || 'jobdb',
+      entities: [Job],
+      synchronize: true, // ⚠️ auto-creates tables in dev
+    }),
 
     JobsModule,
   ],
