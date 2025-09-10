@@ -6,8 +6,10 @@ async function bootstrap() {
 
   // 👇 Enable CORS
   app.enableCors({
-    origin: 'https://job-board-ten-opal.vercel.app', // your frontend URL
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+origin: [
+    'https://job-board-ten-opal.vercel.app',
+    'http://localhost:3001',
+  ],    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
 
