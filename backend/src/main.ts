@@ -7,14 +7,15 @@ async function bootstrap() {
   // 👇 Enable CORS
 app.enableCors({
   origin: [
-    'http://localhost:3001', // local dev
-    'https://job-board-ten-opal.vercel.app' // deployed frontend
-  ],
+      'http://localhost:3000',
+      'http://localhost:3001',
+      'https://job-board-ten-opal.vercel.app',
+    ],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 });
 
 
-await app.listen(process.env.DB_PORT || 3000);
+await app.listen(4000);
 }
 bootstrap();

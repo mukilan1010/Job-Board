@@ -35,7 +35,7 @@ export default function CreateJobModal({ opened, onClose, onJobCreated }: Props)
 
   const onSubmit = async (data: JobForm) => {
     try {
-      const response = await fetch("https://job-board-3-z1il.onrender.com/jobs", {
+      const response = await fetch("http://localhost:4000/jobs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

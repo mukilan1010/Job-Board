@@ -18,7 +18,7 @@ export default function HomePage() {
 
   // fetch jobs (can be reused later)
   const fetchJobs = useCallback(() => {
-    fetch("https://job-board-3-z1il.onrender.com/jobs")
+    fetch("http://localhost:4000/jobs")
       .then((res) => res.json())
       .then((data) => setJobs(data))
       .catch((err) => console.error("❌ Error fetching jobs:", err));
