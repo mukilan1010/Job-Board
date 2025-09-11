@@ -16,7 +16,8 @@ import { Job } from './jobs/job.entity';
       password: process.env.DB_PASSWORD || 'Muuki@291024',
       database: process.env.DB_NAME || 'jobdb',
       entities: [Job],
-      synchronize: true, // ⚠️ auto-creates tables in dev
+      synchronize: true, // ⚠️ only for dev
+      ssl: { rejectUnauthorized: false }, // always enable SSL with rejectUnauthorized false
     }),
 
     JobsModule,
