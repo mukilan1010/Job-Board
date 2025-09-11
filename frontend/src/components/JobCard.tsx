@@ -21,12 +21,14 @@ function getTimeAgo(dateString?: string) {
   const now = new Date();
   const diffMs = now.getTime() - postedDate.getTime();
 
-  const diffMins = Math.floor(diffMs / (1000 * 60));
+  let diffMins = Math.floor(diffMs / (1000 * 60));
+  diffMins = Math.max(diffMins, 0); 
   if (diffMins < 60) return `${diffMins}m ago`;
 
   const diffHrs = Math.floor(diffMins / 60);
   return `${diffHrs}h ago`;
 }
+
 
 
 export default function JobCard({
